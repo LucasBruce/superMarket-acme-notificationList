@@ -1,0 +1,35 @@
+package br.com.notification.model;
+
+import lombok.*;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table (name = "tb_notification")
+public class NotificationEntity {
+
+    @Id
+    @SequenceGenerator (
+            name = "notification_id_sequence",
+            sequenceName = "notification_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue (
+            strategy = GenerationType.SEQUENCE,
+            generator = "notification_id_sequence"
+    )
+    private Long id;
+
+    private LocalDateTime sendAt = LocalDateTime.now();
+    private String cpf_customer;
+    private String message;
+    private String sender;
+    private String customer_email;
+    private Boolean fraud = true;
+}

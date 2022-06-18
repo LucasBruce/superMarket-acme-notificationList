@@ -1,0 +1,1 @@
+update tb_fraud set customer_nome = 'Lucas Bruce' where customer_nome is null;
